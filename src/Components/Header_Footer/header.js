@@ -1,6 +1,7 @@
 import React from 'react'
 import {AppBar, Toolbar, Button} from '@material-ui/core'
 import {Link} from 'react-router-dom'
+import {CityLogo} from '../Utils/tool'
 function Header() {
     return( 
         <AppBar
@@ -12,14 +13,25 @@ function Header() {
                 borderBottom: '2px solid #00285e'
             }}
         >
-            <ToolBar style = {{display: 'flex'}}>
+            <Toolbar style = {{display: 'flex'}}>
                 <div style = {{flexGrow: 1}}>
-                    logo
+                    <CityLogo
+                        link = {true}
+                        linkTo = {'/'}
+                        width="70px"
+                        height="70px"
+                    />
                 </div>
-                <Link to = "">
-                    <Button>The team</Button>
+                <Link to = "/the_team">
+                    <Button color="inherit">The team</Button>
                 </Link>
-            </ToolBar>
+                <Link to = "/the_matches">
+                    <Button color="inherit">Matches</Button>
+                </Link>
+                <Link to = "/dashboard">
+                    <Button color="inherit">Dashboard</Button>
+                </Link>
+            </Toolbar>
         </AppBar>
     )
 }
