@@ -15,12 +15,14 @@ function Header() {
         >
             <Toolbar style = {{display: 'flex'}}>
                 <div style = {{flexGrow: 1}}>
-                    <CityLogo
-                        link = {true}
-                        linkTo = {'/'}
-                        width="70px"
-                        height="70px"
-                    />
+                    <div className="header_logo">
+                        <CityLogo
+                            link = {true}
+                            linkTo = {'/'}
+                            width="70px"
+                            height="70px"
+                        />
+                    </div>
                 </div>
                 <Link to = "/the_team">
                     <Button color="inherit">The team</Button>

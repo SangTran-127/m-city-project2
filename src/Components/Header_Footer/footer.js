@@ -9,7 +9,7 @@ function Footer() {
                     linkTo = {'/'}
                     width="70px"
                     height="70px"
-                    />
+                />
             </div>
             <div className="footer_discl">
                 Manchester City 2021.All rights reserved

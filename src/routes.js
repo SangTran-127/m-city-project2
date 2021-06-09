@@ -8,11 +8,9 @@ import SignIn from './Components/Signin/index'
 function Routes() {
   return (
     <BrowserRouter>
-        {/* header */}
         <Header />
-        
         <Switch>
-            <Route path="/sign_in" exact component={Home}/>
+            <Route path="/sign_in" exact component={SignIn}/>
             <Route path="/" exact component={Home}/>
         </Switch>
         <Footer />   
