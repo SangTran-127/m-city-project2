@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import { FormatLineSpacing } from '@material-ui/icons'
+import {firebase} from '../../firebase'
 function SignIn() {
     const [loading, setLoading] = useState(false)
     const formik = useFormik({
@@ -15,12 +16,19 @@ function SignIn() {
             email: Yup.string().email('Invalid email, try again').required('The email is required'),
             password: Yup.string().required('The password is required')
         }),
-        onSubmit: (value) => { //validate function
+        onSubmit: (values) => { //validate function
             //function se duoc goi khi click button // phai co du email mat khau moi dc
             setLoading(true)
-            console.log(value);
+            console.log(values);
+            submitForm(values)
         }
     })
+    const onSubmit = () => {
+        firebase.auth().signInWithEmailAndPassword(
+            values.email,
+            values.password
+        )
+    }
     return (
         <div className="container">
             <div className="signin_wrapper" style={{margin:'100px'}}>
