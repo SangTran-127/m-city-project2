@@ -2,10 +2,19 @@ import React from 'react'
 import {AppBar, Toolbar, Button} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 import {CityLogo} from '../Utils/tool'
-function Header() {
+import {firebase}  from '../../firebase'
+function Header({user}) {
+    const logoutHandler = () => {
+        firebase.auth().signOut()
+        .then(() => {
+            alert('fuckyou')
+        }).catch(error => {
+            alert('error')
+        })
+    }
     return( 
         <AppBar
-            position = "fixed"
+            position = ""
             style = {{
                 backgroundColor: '#98c5e9',
                 boxShadow: 'none',
@@ -30,9 +39,18 @@ function Header() {
                 <Link to = "/the_matches">
                     <Button color="inherit">Matches</Button>
                 </Link>
-                <Link to = "/dashboard">
-                    <Button color="inherit">Dashboard</Button>
-                </Link>
+                {user ? 
+                <>
+                    <Link to = "/dashboard">
+                        <Button color="inherit">Dashboard</Button>
+                    </Link>
+                    <Button color="inherit"
+                        onClick={() => logoutHandler()}
+                    >Log out</Button>
+                </>
+                    :
+                    null
+                }
             </Toolbar>
         </AppBar>
     )

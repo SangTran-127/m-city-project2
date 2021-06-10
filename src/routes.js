@@ -5,10 +5,11 @@ import Header from './Components/Header_Footer/header'
 import Footer from './Components/Header_Footer/footer'
 import Home from './Components/Home'
 import SignIn from './Components/Signin/index'
-function Routes() {
+
+function Routes({user}) {
   return (
     <BrowserRouter>
-        <Header />
+        <Header user={user}/>
         <Switch>
             <Route path="/sign_in" exact component={SignIn}/>
             <Route path="/" exact component={Home}/>

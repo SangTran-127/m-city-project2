@@ -5,7 +5,8 @@ import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import { FormatLineSpacing } from '@material-ui/icons'
 import {firebase} from '../../firebase'
-function SignIn() {
+import {PinDropSharp} from '@material-ui/icons'
+function SignIn(props) {
     const [loading, setLoading] = useState(false)
     const formik = useFormik({
         initialValues: { // de biet input la loai gi
@@ -23,11 +24,18 @@ function SignIn() {
             submitForm(values)
         }
     })
-    const onSubmit = () => {
+    const submitForm = (values) => {
         firebase.auth().signInWithEmailAndPassword(
             values.email,
             values.password
-        )
+        ).then(()=>{
+            //show succes
+            props.history.push('/dashboard')
+        }).catch(error => {
+            setLoading(false)  
+            alert(error) 
+            // 
+        })
     }
     return (
         <div className="container">
@@ -47,6 +55,7 @@ function SignIn() {
                         </div>
                     : null}
                     <input 
+                        placeholder="enter your password"
                         name="password" 
                         type="password"
                         onChange={formik.handleChange}
