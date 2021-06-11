@@ -1,6 +1,7 @@
 import React from 'react'
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
-
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Header from './Components/Header_Footer/header'
 import Footer from './Components/Header_Footer/footer'
 import Home from './Components/Home'
@@ -14,6 +15,8 @@ function Routes({user}) {
             <Route path="/sign_in" exact component={SignIn}/>
             <Route path="/" exact component={Home}/>
         </Switch>
+        <ToastContainer/>
+ 
         <Footer />   
     </BrowserRouter>  
     

@@ -3,18 +3,19 @@ import {AppBar, Toolbar, Button} from '@material-ui/core'
 import {Link} from 'react-router-dom'
 import {CityLogo} from '../Utils/tool'
 import {firebase}  from '../../firebase'
+import {showToastSuccess, showToastError} from '../Utils/tool'
 function Header({user}) {
     const logoutHandler = () => {
         firebase.auth().signOut()
         .then(() => {
-            alert('fuckyou')
+            showToastSuccess(`Good bye, ${user.email}`)
         }).catch(error => {
-            alert('error')
+            showToastError(error.message)
         })
     }
     return( 
         <AppBar
-            position = ""
+            position = "fixed"
             style = {{
                 backgroundColor: '#98c5e9',
                 boxShadow: 'none',

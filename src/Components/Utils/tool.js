@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import mcitylogo from '../../Resources/images/logos/manchester_city_logo.png'
-
+import {toast} from 'react-toastify'
 export const CityLogo = (props) => {
     const template = <div
         className="img_cover"
@@ -21,4 +21,27 @@ export const CityLogo = (props) => {
     } else {
         return template
     }
+}
+export const showToastError = msg => {
+    toast.error(msg, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    
+}
+export const showToastSuccess = msg => {
+    toast.success(msg, {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
 }

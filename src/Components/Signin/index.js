@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 import {CircularProgress} from '@material-ui/core'
-import {Redirect} from 'react-router-dom'
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
-import { FormatLineSpacing } from '@material-ui/icons'
 import {firebase} from '../../firebase'
-import {PinDropSharp} from '@material-ui/icons'
+import {showToastSuccess, showToastError} from '../Utils/tool'
+
 function SignIn(props) {
     const [loading, setLoading] = useState(false)
     const formik = useFormik({
@@ -31,9 +30,11 @@ function SignIn(props) {
         ).then(()=>{
             //show succes
             props.history.push('/dashboard')
+            showToastSuccess(`welcome back, ${values.email}`)
         }).catch(error => {
             setLoading(false)  
-            alert(error) 
+
+            showToastError(error.message)
             // 
         })
     }
@@ -72,10 +73,10 @@ function SignIn(props) {
                         : 
                         <button type="submit">Login</button>
                     }
-                    
                 </form>
 
             </div>
+            
         </div>
     )
 }
