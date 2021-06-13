@@ -7,13 +7,14 @@ import Footer from './Components/Header_Footer/footer'
 import Home from './Components/Home'
 import SignIn from './Components/Signin/index'
 import Dashboard from './Components/Admin/Dashboard'
+import AuthGuard from './Hoc/Auth'
 function Routes({user}) {
   return (
     <BrowserRouter>
         <Header user={user}/>
-        <Switch>
-            <Route path="/sign_in" exact component={Dashboard}/>
-            <Route path="/sign_in" exact component={SignIn}/>
+        <Switch>  
+            <Route path="/dashboard" exact component={AuthGuard(Dashboard)}/>
+            <Route path="/sign_in" exact component={(props) => (<SignIn {...props} user = {user}/>)}/>
             <Route path="/" exact component={Home}/>
         </Switch>
         <ToastContainer/>

@@ -4,6 +4,7 @@ import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import {firebase} from '../../firebase'
 import {showToastSuccess, showToastError} from '../Utils/tool'
+import {Redirect} from 'react-router-dom'
 
 function SignIn(props) {
     const [loading, setLoading] = useState(false)
@@ -39,6 +40,9 @@ function SignIn(props) {
         })
     }
     return (
+        <>
+            {!props.user ?
+               
         <div className="container">
             <div className="signin_wrapper" style={{margin:'100px'}}>
                 <form onSubmit={formik.handleSubmit}>
@@ -78,6 +82,10 @@ function SignIn(props) {
             </div>
             
         </div>
+        :
+                <Redirect  to ="/dashboard"/>
+            }
+        </>
     )
 }
 export default SignIn

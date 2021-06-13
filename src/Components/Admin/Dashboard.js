@@ -1,5 +1,6 @@
 import React from 'react'
-function Dashboard() {
+function Dashboard(props) {
+    console.log(props);
     return(
         <>
             Dashboard
