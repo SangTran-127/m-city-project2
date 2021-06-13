@@ -76,7 +76,7 @@ function SignIn(props) {
                 </form>
 
             </div>
-            <div></div>
+            
         </div>
     )
 }
