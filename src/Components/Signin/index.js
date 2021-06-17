@@ -80,7 +80,7 @@ function SignIn(props) {
                 </form>
 
             </div>
-            <div></div>
+            
         </div>
         :
                 <Redirect  to ="/dashboard"/>
