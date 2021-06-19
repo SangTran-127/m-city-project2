@@ -85,7 +85,6 @@ function SignIn(props) {
         :
                 <Redirect  to ="/dashboard"/>
             }
-            div
         </>
     )
 }
