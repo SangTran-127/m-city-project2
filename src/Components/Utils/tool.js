@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import mcitylogo from '../../Resources/images/logos/manchester_city_logo.png'
 import {toast} from 'react-toastify'
+import {firebase} from '../../firebase'
 export const CityLogo = (props) => {
     const template = <div
         className="img_cover"
@@ -44,4 +45,12 @@ export const showToastSuccess = msg => {
         draggable: true,
         progress: undefined,
         });
+}
+export const logoutHandler = (name) => {
+    firebase.auth().signOut()
+    .then(() => {
+        showToastSuccess(`Good bye ${name}`)
+    }).catch(error => {
+        showToastError(error.message)
+    })
 }
