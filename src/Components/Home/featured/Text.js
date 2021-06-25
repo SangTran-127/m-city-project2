@@ -127,6 +127,7 @@ const Text = () => {
             {animateFirstText()}
             {animateSecondText()}
         </div>
+        <div></div>
     )
 }
 
