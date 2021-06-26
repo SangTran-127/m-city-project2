@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth';
-
+import 'firebase/firestore'
+import {cityDb} from './temp/m-city-export'
 const firebaseConfig = {
     apiKey: "AIzaSyApce1Oqw2vRE4Atw-YuWy-QqJA7_SzuVs",
     authDomain: "mcity-project2.firebaseapp.com",
@@ -12,6 +13,15 @@ const firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  const DB = firebase.firestore()
+  const matchesCollection = DB.collection('matches')
+
+  // cityDb.matches.forEach((item) => {
+  //   matchesCollection.add(item)
+  // })
+
+
   export {
-    firebase
+    firebase,
+    matchesCollection
   }
