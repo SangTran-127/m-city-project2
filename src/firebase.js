@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth';
 import 'firebase/firestore'
+import 'firebase/storage';
 import {cityDb} from './temp/m-city-export'
 const firebaseConfig = {
     apiKey: "AIzaSyApce1Oqw2vRE4Atw-YuWy-QqJA7_SzuVs",
@@ -13,15 +14,37 @@ const firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  const DB = firebase.firestore()
-  const matchesCollection = DB.collection('matches')
+  const db = firebase.firestore();
+  const matchesCollection = db.collection('matches');
+  const playersCollection = db.collection('players');
+  const positionsCollection = db.collection('positions');
+  const promotionsCollection = db.collection('promotions');
+  const teamsCollection = db.collection('teams');
 
-  // cityDb.matches.forEach((item) => {
+
+  // cityDb.matches.forEach(item => {
   //   matchesCollection.add(item)
-  // })
+  // });
 
+  // cityDb.players.forEach(item => {
+  //   playersCollection.add(item)
+  // });
 
+  // cityDb.positions.forEach(item => {
+  //   positionsCollection.add(item)
+  // });
+  // cityDb.promotions.forEach(item => {
+  // promotionsCollection.add(item)
+  // });
+  // cityDb.teams.forEach(item => {
+  //   teamsCollection.add(item)
+  // });
+  
   export {
     firebase,
-    matchesCollection
+    matchesCollection,
+    playersCollection,
+    positionsCollection,
+    promotionsCollection,
+    teamsCollection
   }
