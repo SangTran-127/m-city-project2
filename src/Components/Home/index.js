@@ -1,11 +1,15 @@
 import React from 'react'
 import Featured from './featured'
 import MatchesHome from './matches';
+import MeetPlayers from './meetPlayers';
+import Promotion from './promotion';
 function Home() {
     return(
         <div className="bck_blue">
             <Featured/>
-            <MathesHome/>
+            <MatchesHome/>
+            <MeetPlayers/>
+            <Promotion/>
         </div>
     )
 }
