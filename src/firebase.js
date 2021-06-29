@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth';
 import 'firebase/firestore'
 import 'firebase/storage';
-import {cityDb} from './temp/m-city-export'
+// import {cityDb} from './temp/m-city-export'
 const firebaseConfig = {
     apiKey: "AIzaSyApce1Oqw2vRE4Atw-YuWy-QqJA7_SzuVs",
     authDomain: "mcity-project2.firebaseapp.com",
