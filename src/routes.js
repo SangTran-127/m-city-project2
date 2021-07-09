@@ -14,8 +14,8 @@ function Routes({user}) {
     <BrowserRouter>
         <Header user={user}/>
         <Switch>  
-            <Route path="/admin_palyers" exact component={AuthGuard(AdminPlayers)}/>
             <Route path="/dashboard" exact component={AuthGuard(Dashboard)}/>
+            <Route path="/admin_players" exact component={AuthGuard(AdminPlayers)}/>
             <Route path="/sign_in" exact component=
             {(props) => (<SignIn {...props} user = {user}/>)}/>
             <Route path="/" exact component={Home}/>
