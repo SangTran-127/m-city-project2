@@ -48,4 +48,3 @@ const firebaseConfig = {
     promotionsCollection,
     teamsCollection
   }
-matchesCollection
